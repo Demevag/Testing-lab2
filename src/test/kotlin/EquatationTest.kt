@@ -31,19 +31,33 @@ internal class EquatationTest
 
     @org.junit.Test
     fun func1Tests() {
-        assertEquals(11.92462, func1(-PI/4,eps, sinFuncMock), eps)
-        assertEquals(-38.649990, func1(-PI/3,eps, sinFuncMock), eps)
+        assertEquals(-3.974873, func1(-PI/4,eps, sinFuncMock), eps)
+        assertEquals(28.899990, func1(-PI/3,eps, sinFuncMock), eps)
+
+        assertEquals(-3.974873, func1(-PI/4,eps), eps)
+        assertEquals(28.899990, func1(-PI/3,eps), eps)
     }
 
     @org.junit.Test
     fun func2Test() {
         assertEquals(-3.239709, func2(0.1,eps, lnFuncMock), eps)
         assertEquals(1.957416, func2(7.0,eps, lnFuncMock), eps)
+
+        assertEquals(-3.239709, func2(0.1,eps), eps)
+        assertEquals(1.957416, func2(7.0,eps), eps)
     }
 
     @org.junit.Test
     fun funcTest() {
-        assertEquals(-3.239709, func(0.1,eps, lnFuncMock), eps)
-        assertEquals(Double.NaN, func(-0.4,eps, lnFuncMock), eps)
+        assertEquals(-3.239709, func(0.1,eps, sinFuncMock, lnFuncMock), eps)
+        assertEquals(0.1839269, func(-0.4,eps, sinFuncMock, lnFuncMock), eps)
+
+        assertEquals(-3.239709, func(0.1,eps, sinFuncMock), eps)
+        assertEquals(-3.239709, func(0.1,eps, ::sin, lnFuncMock), eps)
+        assertEquals(-3.239709, func(0.1,eps), eps)
+
+        assertEquals(0.1839269, func(-0.4,eps, sinFuncMock), eps)
+        assertEquals(0.1839269, func(-0.4,eps, ::sin, lnFuncMock), eps)
+        assertEquals(0.1839269, func(-0.4,eps), eps)
     }
 }

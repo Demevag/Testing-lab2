@@ -27,7 +27,9 @@ fun sin(x: Double, eps: Double): Double {
     return result
 }
 
-fun cos(x: Double, eps: Double, sinFunc: (Double, Double) -> Double = ::sin): Double {
+fun cos(x: Double,
+        eps: Double,
+        sinFunc: (Double, Double) -> Double = ::sin): Double {
     return sinFunc(x + Math.PI / 2, eps)
 }
 

@@ -1,7 +1,5 @@
 fun ln(x: Double, eps: Double): Double {
-    if (x == Double.NEGATIVE_INFINITY ||
-            x == Double.POSITIVE_INFINITY ||
-            x == Double.NaN ||
+    if (x == Double.NaN || x < 0.0 ||
             eps == Double.POSITIVE_INFINITY ||
             eps == Double.NEGATIVE_INFINITY ||
             eps == Double.NaN ||
@@ -9,9 +7,14 @@ fun ln(x: Double, eps: Double): Double {
         return Double.NaN
     }
 
-    if (x <= 0.0) {
-        return Double.NEGATIVE_INFINITY;
+    if (x == 0.0) {
+        return Double.NEGATIVE_INFINITY
     }
+
+    if (x == Double.POSITIVE_INFINITY) {
+        return Double.POSITIVE_INFINITY
+    }
+
     var prev: Double
     var result = 0.0
     var i = 0

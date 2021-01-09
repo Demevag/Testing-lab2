@@ -20,6 +20,9 @@ internal class LNTest(
         @Parameterized.Parameters
         fun data(): List<Array<Double>> {
             return arrayListOf(
+                    arrayOf(Double.NaN, 1e-5),
+                    arrayOf(Double.POSITIVE_INFINITY, 1e-5),
+                    arrayOf(Double.NEGATIVE_INFINITY, 1e-5),
                     arrayOf(0.0, 1e-5),
                     arrayOf(0.008, 1e-5),
                     arrayOf(0.5, 1e-5),

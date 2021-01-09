@@ -8,8 +8,9 @@ internal class LogTest(
 {
     @org.junit.Test
     fun log2Test() {
-        val (x, eps, lnFunc) = args
-        assertEquals(kotlin.math.log(x, 2.0), log(x, eps, 2.0, lnFunc), eps);
+        val (x, eps, lnFuncMock) = args
+        assertEquals(kotlin.math.log(x, 2.0), log(x, eps, 2.0, lnFuncMock), eps);
+        assertEquals(kotlin.math.log(x, 2.0), log(x, eps, 2.0), eps);
     }
 
     @org.junit.Test
